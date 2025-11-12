@@ -1,0 +1,274 @@
+[
+  {
+    "id": "c1_001",
+    "name": "鸡胸肉沙拉",
+    "canteen": "中心食堂",
+    "category": "荤菜",
+    "price": 12.0,
+    "nutrition": {
+      "calories": 320,
+      "protein": 35,
+      "carbs": 18,
+      "fat": 10,
+      "fiber": 5,
+      "sodium": 450
+    },
+    "ingredients": ["鸡胸肉", "生菜", "番茄", "黄瓜", "橄榄油"],
+    "tags": ["高蛋白", "低脂", "健康", "清淡"],
+    "available_meals": ["午餐", "晚餐"],
+    "description": "新鲜蔬菜配烤鸡胸肉，健身人士首选"
+  },
+  {
+    "id": "c1_002",
+    "name": "糙米饭",
+    "canteen": "中心食堂",
+    "category": "主食",
+    "price": 2.0,
+    "nutrition": {
+      "calories": 200,
+      "protein": 5,
+      "carbs": 42,
+      "fat": 1.5,
+      "fiber": 3
+    },
+    "ingredients": ["糙米"],
+    "tags": ["全谷物", "健康", "低GI"],
+    "available_meals": ["早餐", "午餐", "晚餐"],
+    "description": "全谷物糙米饭，营养丰富"
+  },
+  {
+    "id": "c1_003",
+    "name": "西兰花炒虾仁",
+    "canteen": "中心食堂",
+    "category": "荤菜",
+    "price": 15.0,
+    "nutrition": {
+      "calories": 180,
+      "protein": 28,
+      "carbs": 8,
+      "fat": 5,
+      "fiber": 3,
+      "sodium": 380
+    },
+    "ingredients": ["虾仁", "西兰花", "蒜", "少许油"],
+    "tags": ["高蛋白", "低卡", "清淡", "健康"],
+    "available_meals": ["午餐", "晚餐"],
+    "description": "高蛋白低脂，适合减脂期"
+  },
+  {
+    "id": "c1_004",
+    "name": "番茄鸡蛋汤",
+    "canteen": "中心食堂",
+    "category": "汤",
+    "price": 5.0,
+    "nutrition": {
+      "calories": 90,
+      "protein": 7,
+      "carbs": 6,
+      "fat": 4,
+      "sodium": 520
+    },
+    "ingredients": ["番茄", "鸡蛋", "葱花"],
+    "tags": ["清淡", "营养", "暖胃"],
+    "available_meals": ["早餐", "午餐", "晚餐"],
+    "description": "经典家常汤，营养丰富"
+  },
+  {
+    "id": "c1_005",
+    "name": "全麦面包",
+    "canteen": "中心食堂",
+    "category": "主食",
+    "price": 3.0,
+    "nutrition": {
+      "calories": 150,
+      "protein": 6,
+      "carbs": 28,
+      "fat": 2,
+      "fiber": 4
+    },
+    "ingredients": ["全麦粉", "酵母"],
+    "tags": ["全谷物", "健康", "低脂"],
+    "available_meals": ["早餐"],
+    "description": "营养早餐选择"
+  },
+  {
+    "id": "c2_001",
+    "name": "牛肉面",
+    "canteen": "北区食堂",
+    "category": "主食",
+    "price": 18.0,
+    "nutrition": {
+      "calories": 550,
+      "protein": 32,
+      "carbs": 68,
+      "fat": 15,
+      "fiber": 4,
+      "sodium": 980
+    },
+    "ingredients": ["牛肉", "面条", "青菜", "高汤"],
+    "tags": ["高蛋白", "饱腹"],
+    "available_meals": ["午餐", "晚餐"],
+    "description": "量大管饱，适合增肌期"
+  },
+  {
+    "id": "c2_002",
+    "name": "蔬菜炒蛋",
+    "canteen": "北区食堂",
+    "category": "素菜",
+    "price": 8.0,
+    "nutrition": {
+      "calories": 160,
+      "protein": 12,
+      "carbs": 8,
+      "fat": 9,
+      "fiber": 3
+    },
+    "ingredients": ["鸡蛋", "胡萝卜", "青椒", "洋葱"],
+    "tags": ["素食", "营养", "清淡"],
+    "available_meals": ["早餐", "午餐", "晚餐"],
+    "description": "素食营养搭配"
+  },
+  {
+    "id": "c2_003",
+    "name": "清蒸鲈鱼",
+    "canteen": "北区食堂",
+    "category": "荤菜",
+    "price": 22.0,
+    "nutrition": {
+      "calories": 220,
+      "protein": 38,
+      "carbs": 2,
+      "fat": 6,
+      "sodium": 420
+    },
+    "ingredients": ["鲈鱼", "生姜", "葱", "蒸鱼豉油"],
+    "tags": ["高蛋白", "低脂", "清淡", "健康"],
+    "available_meals": ["午餐", "晚餐"],
+    "description": "优质蛋白来源，omega-3丰富"
+  },
+  {
+    "id": "c2_004",
+    "name": "紫米粥",
+    "canteen": "北区食堂",
+    "category": "主食",
+    "price": 3.0,
+    "nutrition": {
+      "calories": 140,
+      "protein": 4,
+      "carbs": 30,
+      "fat": 1,
+      "fiber": 2
+    },
+    "ingredients": ["紫米", "水"],
+    "tags": ["健康", "易消化", "暖胃"],
+    "available_meals": ["早餐"],
+    "description": "营养早餐粥"
+  },
+  {
+    "id": "c3_001",
+    "name": "麻辣香锅",
+    "canteen": "南区食堂",
+    "category": "荤菜",
+    "price": 20.0,
+    "nutrition": {
+      "calories": 680,
+      "protein": 28,
+      "carbs": 45,
+      "fat": 42,
+      "sodium": 1500
+    },
+    "ingredients": ["肉类", "蔬菜", "辣椒", "花椒", "油"],
+    "tags": ["辣", "重口味", "高热量"],
+    "available_meals": ["午餐", "晚餐"],
+    "description": "川味麻辣，口味浓郁"
+  },
+  {
+    "id": "c3_002",
+    "name": "白灼菜心",
+    "canteen": "南区食堂",
+    "category": "素菜",
+    "price": 6.0,
+    "nutrition": {
+      "calories": 45,
+      "protein": 2,
+      "carbs": 7,
+      "fat": 1,
+      "fiber": 3,
+      "sodium": 280
+    },
+    "ingredients": ["菜心", "蒜", "少许油"],
+    "tags": ["低卡", "清淡", "素食", "健康"],
+    "available_meals": ["午餐", "晚餐"],
+    "description": "清淡蔬菜，补充膳食纤维"
+  },
+  {
+    "id": "c3_003",
+    "name": "豆腐脑",
+    "canteen": "南区食堂",
+    "category": "早餐",
+    "price": 4.0,
+    "nutrition": {
+      "calories": 80,
+      "protein": 8,
+      "carbs": 4,
+      "fat": 4
+    },
+    "ingredients": ["豆腐", "调料"],
+    "tags": ["素食", "高蛋白", "清淡"],
+    "available_meals": ["早餐"],
+    "description": "传统早餐，植物蛋白丰富"
+  },
+  {
+    "id": "c3_004",
+    "name": "煎蛋",
+    "canteen": "南区食堂",
+    "category": "早餐",
+    "price": 2.0,
+    "nutrition": {
+      "calories": 140,
+      "protein": 12,
+      "carbs": 1,
+      "fat": 10
+    },
+    "ingredients": ["鸡蛋", "少许油"],
+    "tags": ["高蛋白", "早餐"],
+    "available_meals": ["早餐"],
+    "description": "简单营养的早餐选择"
+  },
+  {
+    "id": "c4_001",
+    "name": "烤鸡腿",
+    "canteen": "西区食堂",
+    "category": "荤菜",
+    "price": 10.0,
+    "nutrition": {
+      "calories": 280,
+      "protein": 26,
+      "carbs": 5,
+      "fat": 18,
+      "sodium": 620
+    },
+    "ingredients": ["鸡腿", "烤料"],
+    "tags": ["高蛋白", "烤制"],
+    "available_meals": ["午餐", "晚餐"],
+    "description": "香嫩多汁的烤鸡腿"
+  },
+  {
+    "id": "c4_002",
+    "name": "玉米",
+    "canteen": "西区食堂",
+    "category": "主食",
+    "price": 3.0,
+    "nutrition": {
+      "calories": 110,
+      "protein": 3,
+      "carbs": 23,
+      "fat": 1.5,
+      "fiber": 3
+    },
+    "ingredients": ["玉米"],
+    "tags": ["粗粮", "健康", "低脂"],
+    "available_meals": ["早餐", "午餐", "晚餐"],
+    "description": "粗粮选择，富含纤维"
+  }
+]

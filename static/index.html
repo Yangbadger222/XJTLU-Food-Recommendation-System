@@ -1,0 +1,622 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🍜 西浦AI食物推荐系统</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Microsoft YaHei', sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .header {
+            text-align: center;
+            color: white;
+            margin-bottom: 30px;
+            animation: fadeIn 0.8s ease-in;
+        }
+
+        .header h1 {
+            font-size: 2.5em;
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
+        }
+
+        .header p {
+            font-size: 1.1em;
+            opacity: 0.9;
+        }
+
+        .main-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+            margin-bottom: 20px;
+        }
+
+        @media (max-width: 968px) {
+            .main-content {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .card {
+            background: white;
+            border-radius: 15px;
+            padding: 25px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+            animation: slideUp 0.6s ease-out;
+        }
+
+        .card h2 {
+            color: #667eea;
+            margin-bottom: 20px;
+            font-size: 1.5em;
+            border-bottom: 2px solid #667eea;
+            padding-bottom: 10px;
+        }
+
+        .form-group {
+            margin-bottom: 15px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 5px;
+            color: #333;
+            font-weight: 500;
+        }
+
+        input, select, textarea {
+            width: 100%;
+            padding: 10px;
+            border: 2px solid #e0e0e0;
+            border-radius: 8px;
+            font-size: 14px;
+            transition: border-color 0.3s;
+        }
+
+        input:focus, select:focus, textarea:focus {
+            outline: none;
+            border-color: #667eea;
+        }
+
+        textarea {
+            resize: vertical;
+            min-height: 80px;
+        }
+
+        .btn {
+            width: 100%;
+            padding: 12px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border: none;
+            border-radius: 8px;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+
+        .btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(102, 126, 234, 0.4);
+        }
+
+        .btn:active {
+            transform: translateY(0);
+        }
+
+        .btn:disabled {
+            opacity: 0.6;
+            cursor: not-allowed;
+        }
+
+        .loading {
+            text-align: center;
+            padding: 20px;
+            color: #667eea;
+        }
+
+        .spinner {
+            border: 3px solid #f3f3f3;
+            border-top: 3px solid #667eea;
+            border-radius: 50%;
+            width: 40px;
+            height: 40px;
+            animation: spin 1s linear infinite;
+            margin: 0 auto;
+        }
+
+        .result-card {
+            background: white;
+            border-radius: 15px;
+            padding: 25px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+            animation: slideUp 0.6s ease-out;
+        }
+
+        .food-item {
+            background: #f8f9fa;
+            padding: 15px;
+            margin-bottom: 15px;
+            border-radius: 10px;
+            border-left: 4px solid #667eea;
+        }
+
+        .food-item h3 {
+            color: #333;
+            margin-bottom: 10px;
+        }
+
+        .food-meta {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-top: 10px;
+        }
+
+        .tag {
+            background: #667eea;
+            color: white;
+            padding: 4px 12px;
+            border-radius: 15px;
+            font-size: 12px;
+        }
+
+        .nutrition {
+            background: #e7f3ff;
+            padding: 15px;
+            border-radius: 10px;
+            margin-top: 15px;
+        }
+
+        .nutrition h3 {
+            color: #667eea;
+            margin-bottom: 10px;
+        }
+
+        .nutrition-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+            gap: 10px;
+        }
+
+        .nutrition-item {
+            text-align: center;
+            padding: 10px;
+            background: white;
+            border-radius: 8px;
+        }
+
+        .nutrition-value {
+            font-size: 1.5em;
+            font-weight: bold;
+            color: #667eea;
+        }
+
+        .nutrition-label {
+            font-size: 0.9em;
+            color: #666;
+        }
+
+        .tips {
+            background: #fff3cd;
+            padding: 15px;
+            border-radius: 10px;
+            margin-top: 15px;
+            border-left: 4px solid #ffc107;
+        }
+
+        .tips h3 {
+            color: #856404;
+            margin-bottom: 10px;
+        }
+
+        .error {
+            background: #f8d7da;
+            color: #721c24;
+            padding: 15px;
+            border-radius: 10px;
+            margin-top: 15px;
+            border-left: 4px solid #dc3545;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(-20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes slideUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        .chat-message {
+            margin-bottom: 15px;
+            padding: 10px 15px;
+            border-radius: 10px;
+            animation: slideUp 0.3s ease-out;
+        }
+
+        .user-message {
+            background: #667eea;
+            color: white;
+            margin-left: 20%;
+            text-align: right;
+        }
+
+        .ai-message {
+            background: white;
+            color: #333;
+            margin-right: 20%;
+            border: 1px solid #e0e0e0;
+        }
+
+        .ai-message strong {
+            color: #667eea;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>🍜 西浦AI食物推荐系统</h1>
+            <p>基于DeepSeek AI的智能营养推荐 | 让每一餐都健康美味</p>
+        </div>
+
+        <div class="main-content">
+            <!-- 左侧：输入表单 -->
+            <div class="card">
+                <h2>📝 填写您的需求</h2>
+                <form id="recommendForm">
+                    <div class="form-group">
+                        <label for="userId">用户ID（随意填写）</label>
+                        <input type="text" id="userId" value="student_001" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="mealType">餐次</label>
+                        <select id="mealType" required>
+                            <option value="早餐">早餐</option>
+                            <option value="午餐" selected>午餐</option>
+                            <option value="晚餐">晚餐</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="goal">健康目标</label>
+                        <select id="goal" required>
+                            <option value="减脂" selected>减脂</option>
+                            <option value="增肌">增肌</option>
+                            <option value="保持">保持</option>
+                            <option value="均衡饮食">均衡饮食</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="calories">每日目标卡路里（可选）</label>
+                        <input type="number" id="calories" placeholder="例如：1500">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="restrictions">饮食限制（可选，多个用逗号分隔）</label>
+                        <input type="text" id="restrictions" placeholder="例如：清淡,无辣">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="customReq">其他要求（可选）</label>
+                        <textarea id="customReq" placeholder="例如：我想要高蛋白低脂肪的食物，不要太油腻"></textarea>
+                    </div>
+
+                    <button type="submit" class="btn" id="submitBtn">
+                        🤖 获取AI推荐
+                    </button>
+                </form>
+            </div>
+
+            <!-- 右侧：推荐结果 -->
+            <div id="resultArea">
+                <div class="card" style="text-align: center; color: #999;">
+                    <h2>💡 推荐结果</h2>
+                    <p style="margin-top: 50px;">填写左侧表单，点击"获取AI推荐"按钮</p>
+                    <p style="margin-top: 20px; font-size: 3em;">🍽️</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- AI对话框 -->
+        <div class="card" style="margin-top: 20px;">
+            <h2>💬 与AI营养师对话</h2>
+            <div id="chatHistory" style="max-height: 300px; overflow-y: auto; margin-bottom: 15px; padding: 10px; background: #f8f9fa; border-radius: 10px;">
+                <div style="text-align: center; color: #999; padding: 20px;">
+                    👋 你好！我是AI营养师，有什么饮食问题可以问我哦~
+                </div>
+            </div>
+            <div style="display: flex; gap: 10px;">
+                <input type="text" id="chatInput" placeholder="问我任何关于饮食营养的问题..." style="flex: 1;">
+                <button onclick="sendMessage()" class="btn" style="width: auto; padding: 10px 30px;">发送</button>
+            </div>
+        </div>
+
+        <!-- 底部链接 -->
+        <div style="text-align: center; color: white; opacity: 0.8; margin-top: 20px;">
+            <p>
+                <a href="/docs" style="color: white; margin: 0 10px;">📚 API文档</a> | 
+                <a href="/health" style="color: white; margin: 0 10px;">❤️ 健康检查</a> |
+                <a href="RAG_GUIDE.html" target="_blank" style="color: white; margin: 0 10px;">📖 数据添加指南</a>
+            </p>
+        </div>
+    </div>
+
+    <script>
+        const form = document.getElementById('recommendForm');
+        const resultArea = document.getElementById('resultArea');
+        const submitBtn = document.getElementById('submitBtn');
+
+        form.addEventListener('submit', async (e) => {
+            e.preventDefault();
+
+            // 显示加载状态
+            submitBtn.disabled = true;
+            submitBtn.textContent = '🔄 AI思考中...';
+            resultArea.innerHTML = `
+                <div class="card loading">
+                    <h2>🤖 AI正在为您推荐...</h2>
+                    <div class="spinner"></div>
+                    <p style="margin-top: 20px;">分析您的需求和营养目标中</p>
+                </div>
+            `;
+
+            // 获取表单数据
+            const userId = document.getElementById('userId').value;
+            const mealType = document.getElementById('mealType').value;
+            const goal = document.getElementById('goal').value;
+            const calories = document.getElementById('calories').value;
+            const restrictions = document.getElementById('restrictions').value;
+            const customReq = document.getElementById('customReq').value;
+
+            // 构建请求数据
+            const requestData = {
+                user_id: userId,
+                meal_type: mealType,
+                preferences: {
+                    goal: goal,
+                    daily_calories_target: calories ? parseInt(calories) : null,
+                    dietary_restrictions: restrictions ? restrictions.split(',').map(s => s.trim()) : [],
+                    allergies: [],
+                    preferred_canteens: [],
+                    disliked_foods: []
+                },
+                custom_requirements: customReq || null
+            };
+
+            try {
+                // 调用API
+                const response = await fetch('/api/recommend', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify(requestData)
+                });
+
+                if (!response.ok) {
+                    throw new Error(`HTTP error! status: ${response.status}`);
+                }
+
+                const data = await response.json();
+
+                // 显示结果
+                displayResults(data);
+
+            } catch (error) {
+                console.error('Error:', error);
+                resultArea.innerHTML = `
+                    <div class="card">
+                        <div class="error">
+                            <h3>❌ 推荐失败</h3>
+                            <p>${error.message}</p>
+                            <p style="margin-top: 10px;">请确保：</p>
+                            <ul style="margin-left: 20px; margin-top: 10px;">
+                                <li>后端服务已启动</li>
+                                <li>数据库已初始化 (python init_db.py)</li>
+                                <li>DeepSeek API密钥已配置</li>
+                            </ul>
+                        </div>
+                    </div>
+                `;
+            } finally {
+                submitBtn.disabled = false;
+                submitBtn.textContent = '🤖 获取AI推荐';
+            }
+        });
+
+        function displayResults(data) {
+            const { food_items, total_nutrition, reasoning, tips } = data;
+
+            let html = `<div class="result-card">`;
+            html += `<h2>✨ AI为您推荐</h2>`;
+
+            // 推荐的食物
+            food_items.forEach((food, index) => {
+                html += `
+                    <div class="food-item">
+                        <h3>${index + 1}. ${food.name}</h3>
+                        <p><strong>食堂：</strong>${food.canteen} | <strong>价格：</strong>¥${food.price}</p>
+                        <p><strong>营养：</strong>
+                            ${food.nutrition.calories}kcal | 
+                            蛋白质${food.nutrition.protein}g | 
+                            碳水${food.nutrition.carbs}g | 
+                            脂肪${food.nutrition.fat}g
+                        </p>
+                        <div class="food-meta">
+                            ${food.tags.map(tag => `<span class="tag">${tag}</span>`).join('')}
+                        </div>
+                    </div>
+                `;
+            });
+
+            // 总营养
+            html += `
+                <div class="nutrition">
+                    <h3>📊 总营养分析</h3>
+                    <div class="nutrition-grid">
+                        <div class="nutrition-item">
+                            <div class="nutrition-value">${total_nutrition.calories}</div>
+                            <div class="nutrition-label">卡路里(kcal)</div>
+                        </div>
+                        <div class="nutrition-item">
+                            <div class="nutrition-value">${total_nutrition.protein}g</div>
+                            <div class="nutrition-label">蛋白质</div>
+                        </div>
+                        <div class="nutrition-item">
+                            <div class="nutrition-value">${total_nutrition.carbs}g</div>
+                            <div class="nutrition-label">碳水</div>
+                        </div>
+                        <div class="nutrition-item">
+                            <div class="nutrition-value">${total_nutrition.fat}g</div>
+                            <div class="nutrition-label">脂肪</div>
+                        </div>
+                    </div>
+                </div>
+            `;
+
+            // AI推荐理由
+            if (reasoning) {
+                html += `
+                    <div style="background: #f8f9fa; padding: 15px; border-radius: 10px; margin-top: 15px;">
+                        <h3 style="color: #667eea; margin-bottom: 10px;">💭 推荐理由</h3>
+                        <p style="line-height: 1.6; white-space: pre-wrap;">${reasoning}</p>
+                    </div>
+                `;
+            }
+
+            // AI建议
+            if (tips) {
+                html += `
+                    <div class="tips">
+                        <h3>💡 AI建议</h3>
+                        <p style="line-height: 1.6; white-space: pre-wrap;">${tips}</p>
+                    </div>
+                `;
+            }
+
+            html += `</div>`;
+            resultArea.innerHTML = html;
+        }
+
+        // AI对话功能
+        let conversationHistory = [];
+
+        async function sendMessage() {
+            const input = document.getElementById('chatInput');
+            const message = input.value.trim();
+            
+            if (!message) return;
+
+            const chatHistory = document.getElementById('chatHistory');
+            
+            // 显示用户消息
+            const userMsg = document.createElement('div');
+            userMsg.className = 'chat-message user-message';
+            userMsg.textContent = message;
+            chatHistory.appendChild(userMsg);
+            
+            // 清空输入框
+            input.value = '';
+            
+            // 显示AI思考中
+            const thinkingMsg = document.createElement('div');
+            thinkingMsg.className = 'chat-message ai-message';
+            thinkingMsg.innerHTML = '<div class="spinner" style="width: 20px; height: 20px; border-width: 2px;"></div>';
+            chatHistory.appendChild(thinkingMsg);
+            chatHistory.scrollTop = chatHistory.scrollHeight;
+
+            try {
+                // 调用聊天API
+                const response = await fetch('/api/chat', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({
+                        message: message,
+                        conversation_history: conversationHistory
+                    })
+                });
+
+                const data = await response.json();
+                
+                // 移除思考消息
+                chatHistory.removeChild(thinkingMsg);
+                
+                // 显示AI回复
+                const aiMsg = document.createElement('div');
+                aiMsg.className = 'chat-message ai-message';
+                aiMsg.innerHTML = `<strong>🤖 AI营养师：</strong><br>${data.response.replace(/\n/g, '<br>')}`;
+                chatHistory.appendChild(aiMsg);
+                
+                // 保存对话历史
+                conversationHistory.push(
+                    { role: 'user', content: message },
+                    { role: 'assistant', content: data.response }
+                );
+                
+                // 限制历史记录长度
+                if (conversationHistory.length > 10) {
+                    conversationHistory = conversationHistory.slice(-10);
+                }
+                
+            } catch (error) {
+                chatHistory.removeChild(thinkingMsg);
+                const errorMsg = document.createElement('div');
+                errorMsg.className = 'chat-message ai-message';
+                errorMsg.innerHTML = `<strong>❌ 错误：</strong>${error.message}`;
+                chatHistory.appendChild(errorMsg);
+            }
+            
+            chatHistory.scrollTop = chatHistory.scrollHeight;
+        }
+
+        // 回车发送消息
+        document.getElementById('chatInput').addEventListener('keypress', (e) => {
+            if (e.key === 'Enter') {
+                sendMessage();
+            }
+        });
+    </script>
+</body>
+</html>

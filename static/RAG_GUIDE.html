@@ -1,0 +1,405 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RAG数据添加指南 - 西浦AI食物推荐系统</title>
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Microsoft YaHei', sans-serif;
+            line-height: 1.8;
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 40px 20px;
+            background: #f5f7fa;
+        }
+        .container {
+            background: white;
+            padding: 40px;
+            border-radius: 15px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+        }
+        h1 {
+            color: #667eea;
+            border-bottom: 3px solid #667eea;
+            padding-bottom: 15px;
+        }
+        h2 {
+            color: #764ba2;
+            margin-top: 30px;
+        }
+        h3 {
+            color: #555;
+        }
+        code {
+            background: #f4f4f4;
+            padding: 2px 6px;
+            border-radius: 4px;
+            font-family: 'Consolas', 'Monaco', monospace;
+        }
+        pre {
+            background: #2d2d2d;
+            color: #f8f8f2;
+            padding: 20px;
+            border-radius: 8px;
+            overflow-x: auto;
+        }
+        pre code {
+            background: none;
+            color: #f8f8f2;
+        }
+        .tip {
+            background: #e7f3ff;
+            border-left: 4px solid #2196F3;
+            padding: 15px;
+            margin: 20px 0;
+            border-radius: 4px;
+        }
+        .warning {
+            background: #fff3cd;
+            border-left: 4px solid #ffc107;
+            padding: 15px;
+            margin: 20px 0;
+            border-radius: 4px;
+        }
+        .example {
+            background: #f8f9fa;
+            border: 1px solid #e0e0e0;
+            padding: 15px;
+            margin: 15px 0;
+            border-radius: 8px;
+        }
+        ul, ol {
+            margin: 15px 0;
+            padding-left: 30px;
+        }
+        li {
+            margin: 8px 0;
+        }
+        a {
+            color: #667eea;
+            text-decoration: none;
+        }
+        a:hover {
+            text-decoration: underline;
+        }
+        .back-btn {
+            display: inline-block;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 10px 20px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <a href="/" class="back-btn">← 返回主页</a>
+        
+        <h1>📖 RAG数据添加完整指南</h1>
+        
+        <p>本指南将教你如何向RAG系统添加西浦周边食堂菜单数据和营养学知识，让AI推荐更加准确和个性化。</p>
+
+        <h2>🎯 什么是RAG？</h2>
+        <p><strong>RAG（Retrieval-Augmented Generation，检索增强生成）</strong>是一种AI技术，它通过以下步骤工作：</p>
+        <ol>
+            <li><strong>存储知识</strong>：将食堂菜单、营养数据等信息存入向量数据库</li>
+            <li><strong>语义检索</strong>：当用户提问时，从数据库中找出最相关的信息</li>
+            <li><strong>生成回答</strong>：AI基于检索到的真实数据生成推荐</li>
+        </ol>
+
+        <div class="tip">
+            <strong>💡 为什么使用RAG？</strong><br>
+            • 避免AI幻觉（编造不存在的食物）<br>
+            • 确保推荐基于真实菜单数据<br>
+            • 符合AI伦理要求<br>
+            • 可以随时更新知识库
+        </div>
+
+        <h2>📝 方法一：添加食堂菜单数据</h2>
+
+        <h3>步骤1：准备菜单数据</h3>
+        <p>在 <code>data/canteens/</code> 目录下创建或编辑JSON文件。每个食堂可以有单独的文件。</p>
+
+        <div class="example">
+            <strong>示例：添加新食堂菜单</strong>
+            <p>创建文件：<code>data/canteens/taobao_street.json</code></p>
+        </div>
+
+        <h3>步骤2：填写食物数据格式</h3>
+        <pre><code>[
+  {
+    "id": "tb_001",
+    "name": "黄焖鸡米饭",
+    "canteen": "淘宝街",
+    "category": "荤菜",
+    "price": 18.0,
+    "nutrition": {
+      "calories": 650,
+      "protein": 35,
+      "carbs": 75,
+      "fat": 20,
+      "fiber": 4,
+      "sodium": 890
+    },
+    "ingredients": ["鸡肉", "米饭", "土豆", "香菇"],
+    "tags": ["辣", "饱腹", "高蛋白"],
+    "available_meals": ["午餐", "晚餐"],
+    "description": "香辣下饭，量大管饱"
+  }
+]</code></pre>
+
+        <h3>步骤3：字段说明</h3>
+        <ul>
+            <li><code>id</code>: 唯一标识符（建议格式：食堂缩写_编号）</li>
+            <li><code>name</code>: 食物名称</li>
+            <li><code>canteen</code>: 食堂或餐厅名称</li>
+            <li><code>category</code>: 类别（主食/荤菜/素菜/汤/早餐/饮品）</li>
+            <li><code>price</code>: 价格（元）</li>
+            <li><code>nutrition</code>: 营养信息
+                <ul>
+                    <li><code>calories</code>: 卡路里（kcal）</li>
+                    <li><code>protein</code>: 蛋白质（g）</li>
+                    <li><code>carbs</code>: 碳水化合物（g）</li>
+                    <li><code>fat</code>: 脂肪（g）</li>
+                    <li><code>fiber</code>: 纤维（g，可选）</li>
+                    <li><code>sodium</code>: 钠（mg，可选）</li>
+                </ul>
+            </li>
+            <li><code>ingredients</code>: 主要食材列表</li>
+            <li><code>tags</code>: 标签（辣/清淡/健康/高蛋白/低脂等）</li>
+            <li><code>available_meals</code>: 供应时段</li>
+            <li><code>description</code>: 描述（可选）</li>
+        </ul>
+
+        <h3>步骤4：使用管理工具添加</h3>
+        <p>使用命令行工具交互式添加：</p>
+        <pre><code>python manage_menu.py add</code></pre>
+
+        <p>或者手动编辑JSON文件后，批量导入：</p>
+        <pre><code># 1. 编辑JSON文件
+# 2. 运行初始化脚本
+python init_db.py</code></pre>
+
+        <h3>步骤5：验证数据</h3>
+        <pre><code># 查看所有菜品
+python manage_menu.py list
+
+# 查看统计信息
+python manage_menu.py stats
+
+# 查看特定食堂
+python manage_menu.py list 淘宝街</code></pre>
+
+        <h2>🥗 方法二：添加营养学知识</h2>
+
+        <h3>方式1：通过DeepSeek Service扩展</h3>
+        <p>编辑 <code>app/services/deepseek_service.py</code>，在系统提示词中添加营养知识：</p>
+
+        <pre><code>def _build_system_prompt(self) -> str:
+    return """你是西交利物浦大学的AI营养顾问助手。
+
+<strong>营养学基础知识：</strong>
+- 减脂期：每日热量缺口500kcal，蛋白质1.6-2g/kg体重
+- 增肌期：每日热量盈余300-500kcal，蛋白质2-2.5g/kg体重
+- 碳水化合物：主要提供能量，建议占总热量40-60%
+- 脂肪：必需营养素，建议占总热量20-30%
+- 膳食纤维：每日25-30g，促进消化
+
+<strong>西浦周边餐饮特点：</strong>
+- 中心食堂：选择丰富，有健康窗口
+- 北区食堂：面食为主，分量较大
+- 南区食堂：川菜居多，口味偏重
+- 淘宝街：外卖选择多，注意控制油盐
+
+<strong>常见食材营养价值：</strong>
+- 鸡胸肉：高蛋白低脂，每100g含蛋白质24g，脂肪1.2g
+- 西兰花：低卡高纤维，富含维生素C和K
+- 糙米：低GI碳水，富含B族维生素
+- 鸡蛋：优质蛋白来源，一个鸡蛋约7g蛋白质
+
+你需要基于这些知识和提供的菜单数据进行推荐。
+"""</code></pre>
+
+        <h3>方式2：创建营养知识文档库</h3>
+        <p>创建 <code>data/nutrition/</code> 目录，添加营养知识文本文件：</p>
+
+        <div class="example">
+            <strong>示例：<code>data/nutrition/basic_nutrition.txt</code></strong>
+            <pre><code># 三大营养素
+蛋白质：构成人体组织的重要成分
+- 优质蛋白来源：鸡蛋、瘦肉、鱼类、豆制品
+- 成人每日需求：0.8-1.2g/kg体重
+- 健身人群：1.6-2.5g/kg体重
+
+碳水化合物：主要能量来源
+- 复合碳水（优）：糙米、全麦、燕麦
+- 简单碳水（少）：糖、白面包
+- 建议：选择低GI食物
+
+脂肪：必需营养素
+- 不饱和脂肪（好）：橄榄油、坚果、深海鱼
+- 饱和脂肪（限）：动物油脂
+- 反式脂肪（避免）：油炸食品</code></pre>
+        </div>
+
+        <h3>方式3：扩展向量数据库</h3>
+        <p>修改 <code>init_db.py</code>，将营养知识也存入向量数据库：</p>
+
+        <pre><code>from pathlib import Path
+
+# 加载营养知识
+nutrition_docs = []
+nutrition_path = Path("data/nutrition")
+if nutrition_path.exists():
+    for file in nutrition_path.glob("*.txt"):
+        with open(file, encoding="utf-8") as f:
+            content = f.read()
+            # 将营养知识转换为可检索的格式
+            nutrition_docs.append({
+                "type": "knowledge",
+                "content": content,
+                "source": file.name
+            })
+
+# 存入向量数据库
+# （需要扩展VectorDatabase类以支持知识文档）</code></pre>
+
+        <h2>🔧 高级技巧</h2>
+
+        <h3>1. 获取真实营养数据</h3>
+        <p>推荐的营养数据来源：</p>
+        <ul>
+            <li><strong>薄荷健康APP</strong>：查询食物营养成分</li>
+            <li><strong>FatSecret</strong>：国际食物数据库</li>
+            <li><strong>中国食物成分表</strong>：权威营养数据</li>
+            <li><strong>食堂菜单</strong>：部分食堂会标注营养信息</li>
+        </ul>
+
+        <div class="warning">
+            <strong>⚠️ 估算营养值技巧：</strong><br>
+            如果无法获取准确数据，可以按以下方法估算：<br>
+            • 一份荤菜 ≈ 300-500kcal<br>
+            • 一份素菜 ≈ 100-200kcal<br>
+            • 一碗米饭 ≈ 200-250kcal<br>
+            • 鸡胸肉100g ≈ 24g蛋白质<br>
+            • 油炸食品脂肪含量 ≈ 20-30g/100g
+        </div>
+
+        <h3>2. 批量添加数据</h3>
+        <p>如果有Excel表格的菜单数据，可以转换为JSON：</p>
+
+        <pre><code>import pandas as pd
+import json
+
+# 读取Excel
+df = pd.read_excel('menu.xlsx')
+
+# 转换为JSON格式
+foods = []
+for _, row in df.iterrows():
+    food = {
+        "id": row['ID'],
+        "name": row['名称'],
+        "canteen": row['食堂'],
+        "category": row['类别'],
+        "price": float(row['价格']),
+        "nutrition": {
+            "calories": float(row['卡路里']),
+            "protein": float(row['蛋白质']),
+            "carbs": float(row['碳水']),
+            "fat": float(row['脂肪'])
+        },
+        "ingredients": row['食材'].split(','),
+        "tags": row['标签'].split(','),
+        "available_meals": row['供应时段'].split(',')
+    }
+    foods.append(food)
+
+# 保存为JSON
+with open('data/canteens/new_menu.json', 'w', encoding='utf-8') as f:
+    json.dump(foods, f, ensure_ascii=False, indent=2)</code></pre>
+
+        <h3>3. 定期更新数据</h3>
+        <pre><code># 1. 添加/修改菜单数据
+# 编辑 data/canteens/*.json
+
+# 2. 清空并重建数据库
+python init_db.py
+
+# 3. 验证更新
+python test_recommendation.py</code></pre>
+
+        <h2>📊 实战案例</h2>
+
+        <h3>案例1：添加淘宝街餐厅</h3>
+        <ol>
+            <li>创建文件 <code>data/canteens/taobao_street.json</code></li>
+            <li>添加20个常见菜品（黄焖鸡、麻辣烫、盖饭等）</li>
+            <li>使用薄荷APP查询每个菜品的营养数据</li>
+            <li>运行 <code>python init_db.py</code> 导入</li>
+            <li>测试：在前端询问"淘宝街有什么适合减脂的食物"</li>
+        </ol>
+
+        <h3>案例2：添加运动营养知识</h3>
+        <ol>
+            <li>创建 <code>data/nutrition/sports_nutrition.txt</code></li>
+            <li>添加内容：
+                <pre><code>运动后营养补充：
+- 力量训练后：30分钟内补充蛋白质+碳水（3:1）
+- 有氧运动后：补充水分和电解质
+- 增肌餐：鸡胸肉+糙米+西兰花（经典组合）
+- 减脂餐：高蛋白低碳水，控制总热量
+
+推荐食物组合：
+- 早餐：鸡蛋+全麦面包+牛奶
+- 午餐：鸡胸肉+糙米+蔬菜
+- 晚餐：鱼肉+少量主食+大量蔬菜
+- 加餐：坚果、水果、酸奶</code></pre>
+            </li>
+            <li>在DeepSeek服务的系统提示词中引用这些知识</li>
+        </ol>
+
+        <h2>✅ 检查清单</h2>
+        <ul>
+            <li>☐ 菜品数据完整（至少包含name, nutrition, tags）</li>
+            <li>☐ 营养数据准确（使用专业数据库）</li>
+            <li>☐ ID唯一不重复</li>
+            <li>☐ 价格符合实际</li>
+            <li>☐ 标签描述准确（辣/清淡/健康等）</li>
+            <li>☐ 运行init_db.py成功导入</li>
+            <li>☐ 在前端测试推荐效果</li>
+        </ul>
+
+        <h2>🆘 常见问题</h2>
+
+        <h3>Q: 如何获取准确的营养数据？</h3>
+        <p>A: 优先使用：薄荷健康APP > 中国食物成分表 > 相似食物估算</p>
+
+        <h3>Q: 数据更新后需要重启服务器吗？</h3>
+        <p>A: 是的。修改数据后需要：1) 运行 <code>python init_db.py</code> 2) 重启服务器</p>
+
+        <h3>Q: 如何删除错误的数据？</h3>
+        <p>A: 使用 <code>python manage_menu.py remove &lt;food_id&gt;</code></p>
+
+        <h3>Q: RAG会自动学习新数据吗？</h3>
+        <p>A: 不会自动学习，每次添加数据后需要运行 <code>init_db.py</code> 重建向量索引</p>
+
+        <h2>📚 更多资源</h2>
+        <ul>
+            <li><a href="https://www.boohee.com/" target="_blank">薄荷健康 - 食物营养查询</a></li>
+            <li><a href="http://www.chinanutri.cn/" target="_blank">中国营养学会</a></li>
+            <li><a href="https://fdc.nal.usda.gov/" target="_blank">USDA食物数据库</a></li>
+        </ul>
+
+        <div class="tip">
+            <strong>💪 加油！</strong><br>
+            通过不断完善数据，你的AI推荐系统会越来越智能！<br>
+            建议每周更新一次菜单数据，确保推荐的时效性。
+        </div>
+
+        <a href="/" class="back-btn">← 返回主页开始使用</a>
+    </div>
+</body>
+</html>

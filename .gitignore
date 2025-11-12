@@ -1,0 +1,109 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+
+# Virtual Environment
+venv/
+env/
+ENV/
+
+# Environment Variables
+.env
+.env.local
+
+# Database
+*.db
+*.sqlite
+*.sqlite3
+data/users.db
+data/chroma_db/
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Testing
+.pytest_cache/
+.coverage
+htmlcov/
+
+# Logs
+*.log
+logs/
+*.log.*
+
+# Sentence Transformers model cache
+.cache/
+sentence_transformers/
+
+# Large model files
+*.bin
+*.h5
+*.pkl
+*.pth
+*.ckpt
+
+# Backup files
+*.backup
+*.bak
+*.tmp
+*.temp
+
+# User uploads (if any)
+uploads/
+media/
+
+# Windows specific
+Desktop.ini
+$RECYCLE_BIN/
+ehthumbs.db
+
+# macOS specific
+.AppleDouble
+.LSOverride
+Icon
+._*
+.Spotlight-V100
+.Trashes
+
+# Linux specific
+.directory
+.Trash-*
+
+# Performance and profiling
+*.prof
+performance_logs/
+
+# Documentation builds
+docs/_build/
+docs/_static/
+docs/_templates/
+
+# Coverage reports
+coverage.xml
+*.cover
