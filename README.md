@@ -6,7 +6,7 @@
 
 
 
-[![Python Version](https://img.shields.io/badge/python-3.12-blue.svg)](https://www.python.org/downloads/)> 🚀 **第一次使用？** 请先阅读 [START_HERE.md](START_HERE.md) 快速上手！
+[![Python Version](https://img.shields.io/badge/python-3.12-blue.svg)](https://www.python.org/downloads/)> 
 
 [![FastAPI](https://img.shields.io/badge/FastAPI-0.121.1-009688.svg)](https://fastapi.tiangolo.com)
 
@@ -495,7 +495,7 @@ docker run -p 8000:8000 --env-file .env xjtlu-food-rec
 
 ## 👥 作者
 
-**项目作者** - [你的名字](https://github.com/你的用户名)
+**项目作者** - [badger](https://github.com/yangbadger222)
 
 ---
 
@@ -511,8 +511,8 @@ docker run -p 8000:8000 --env-file .env xjtlu-food-rec
 
 ## 📧 联系方式
 
-- 项目 Issues: [GitHub Issues](https://github.com/你的用户名/xjtlu-food-recommendation/issues)
-- 邮箱: your.email@example.com
+- 项目 Issues: [GitHub Issues](https://github.com/yangbadger222/xjtlu-food-recommendation/issues)
+- 邮箱: yangbadger222@gmail.com
 
 ---
 
