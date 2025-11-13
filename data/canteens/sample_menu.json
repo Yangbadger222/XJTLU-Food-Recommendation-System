@@ -13,9 +13,23 @@
       "fiber": 5,
       "sodium": 450
     },
-    "ingredients": ["鸡胸肉", "生菜", "番茄", "黄瓜", "橄榄油"],
-    "tags": ["高蛋白", "低脂", "健康", "清淡"],
-    "available_meals": ["午餐", "晚餐"],
+    "ingredients": [
+      "鸡胸肉",
+      "生菜",
+      "番茄",
+      "黄瓜",
+      "橄榄油"
+    ],
+    "tags": [
+      "高蛋白",
+      "低脂",
+      "健康",
+      "清淡"
+    ],
+    "available_meals": [
+      "午餐",
+      "晚餐"
+    ],
     "description": "新鲜蔬菜配烤鸡胸肉，健身人士首选"
   },
   {
@@ -31,9 +45,19 @@
       "fat": 1.5,
       "fiber": 3
     },
-    "ingredients": ["糙米"],
-    "tags": ["全谷物", "健康", "低GI"],
-    "available_meals": ["早餐", "午餐", "晚餐"],
+    "ingredients": [
+      "糙米"
+    ],
+    "tags": [
+      "全谷物",
+      "健康",
+      "低GI"
+    ],
+    "available_meals": [
+      "早餐",
+      "午餐",
+      "晚餐"
+    ],
     "description": "全谷物糙米饭，营养丰富"
   },
   {
@@ -50,9 +74,22 @@
       "fiber": 3,
       "sodium": 380
     },
-    "ingredients": ["虾仁", "西兰花", "蒜", "少许油"],
-    "tags": ["高蛋白", "低卡", "清淡", "健康"],
-    "available_meals": ["午餐", "晚餐"],
+    "ingredients": [
+      "虾仁",
+      "西兰花",
+      "蒜",
+      "少许油"
+    ],
+    "tags": [
+      "高蛋白",
+      "低卡",
+      "清淡",
+      "健康"
+    ],
+    "available_meals": [
+      "午餐",
+      "晚餐"
+    ],
     "description": "高蛋白低脂，适合减脂期"
   },
   {
@@ -68,9 +105,21 @@
       "fat": 4,
       "sodium": 520
     },
-    "ingredients": ["番茄", "鸡蛋", "葱花"],
-    "tags": ["清淡", "营养", "暖胃"],
-    "available_meals": ["早餐", "午餐", "晚餐"],
+    "ingredients": [
+      "番茄",
+      "鸡蛋",
+      "葱花"
+    ],
+    "tags": [
+      "清淡",
+      "营养",
+      "暖胃"
+    ],
+    "available_meals": [
+      "早餐",
+      "午餐",
+      "晚餐"
+    ],
     "description": "经典家常汤，营养丰富"
   },
   {
@@ -86,9 +135,18 @@
       "fat": 2,
       "fiber": 4
     },
-    "ingredients": ["全麦粉", "酵母"],
-    "tags": ["全谷物", "健康", "低脂"],
-    "available_meals": ["早餐"],
+    "ingredients": [
+      "全麦粉",
+      "酵母"
+    ],
+    "tags": [
+      "全谷物",
+      "健康",
+      "低脂"
+    ],
+    "available_meals": [
+      "早餐"
+    ],
     "description": "营养早餐选择"
   },
   {
@@ -105,9 +163,20 @@
       "fiber": 4,
       "sodium": 980
     },
-    "ingredients": ["牛肉", "面条", "青菜", "高汤"],
-    "tags": ["高蛋白", "饱腹"],
-    "available_meals": ["午餐", "晚餐"],
+    "ingredients": [
+      "牛肉",
+      "面条",
+      "青菜",
+      "高汤"
+    ],
+    "tags": [
+      "高蛋白",
+      "饱腹"
+    ],
+    "available_meals": [
+      "午餐",
+      "晚餐"
+    ],
     "description": "量大管饱，适合增肌期"
   },
   {
@@ -123,9 +192,22 @@
       "fat": 9,
       "fiber": 3
     },
-    "ingredients": ["鸡蛋", "胡萝卜", "青椒", "洋葱"],
-    "tags": ["素食", "营养", "清淡"],
-    "available_meals": ["早餐", "午餐", "晚餐"],
+    "ingredients": [
+      "鸡蛋",
+      "胡萝卜",
+      "青椒",
+      "洋葱"
+    ],
+    "tags": [
+      "素食",
+      "营养",
+      "清淡"
+    ],
+    "available_meals": [
+      "早餐",
+      "午餐",
+      "晚餐"
+    ],
     "description": "素食营养搭配"
   },
   {
@@ -141,9 +223,22 @@
       "fat": 6,
       "sodium": 420
     },
-    "ingredients": ["鲈鱼", "生姜", "葱", "蒸鱼豉油"],
-    "tags": ["高蛋白", "低脂", "清淡", "健康"],
-    "available_meals": ["午餐", "晚餐"],
+    "ingredients": [
+      "鲈鱼",
+      "生姜",
+      "葱",
+      "蒸鱼豉油"
+    ],
+    "tags": [
+      "高蛋白",
+      "低脂",
+      "清淡",
+      "健康"
+    ],
+    "available_meals": [
+      "午餐",
+      "晚餐"
+    ],
     "description": "优质蛋白来源，omega-3丰富"
   },
   {
@@ -159,9 +254,18 @@
       "fat": 1,
       "fiber": 2
     },
-    "ingredients": ["紫米", "水"],
-    "tags": ["健康", "易消化", "暖胃"],
-    "available_meals": ["早餐"],
+    "ingredients": [
+      "紫米",
+      "水"
+    ],
+    "tags": [
+      "健康",
+      "易消化",
+      "暖胃"
+    ],
+    "available_meals": [
+      "早餐"
+    ],
     "description": "营养早餐粥"
   },
   {
@@ -177,9 +281,22 @@
       "fat": 42,
       "sodium": 1500
     },
-    "ingredients": ["肉类", "蔬菜", "辣椒", "花椒", "油"],
-    "tags": ["辣", "重口味", "高热量"],
-    "available_meals": ["午餐", "晚餐"],
+    "ingredients": [
+      "肉类",
+      "蔬菜",
+      "辣椒",
+      "花椒",
+      "油"
+    ],
+    "tags": [
+      "辣",
+      "重口味",
+      "高热量"
+    ],
+    "available_meals": [
+      "午餐",
+      "晚餐"
+    ],
     "description": "川味麻辣，口味浓郁"
   },
   {
@@ -196,9 +313,21 @@
       "fiber": 3,
       "sodium": 280
     },
-    "ingredients": ["菜心", "蒜", "少许油"],
-    "tags": ["低卡", "清淡", "素食", "健康"],
-    "available_meals": ["午餐", "晚餐"],
+    "ingredients": [
+      "菜心",
+      "蒜",
+      "少许油"
+    ],
+    "tags": [
+      "低卡",
+      "清淡",
+      "素食",
+      "健康"
+    ],
+    "available_meals": [
+      "午餐",
+      "晚餐"
+    ],
     "description": "清淡蔬菜，补充膳食纤维"
   },
   {
@@ -213,9 +342,18 @@
       "carbs": 4,
       "fat": 4
     },
-    "ingredients": ["豆腐", "调料"],
-    "tags": ["素食", "高蛋白", "清淡"],
-    "available_meals": ["早餐"],
+    "ingredients": [
+      "豆腐",
+      "调料"
+    ],
+    "tags": [
+      "素食",
+      "高蛋白",
+      "清淡"
+    ],
+    "available_meals": [
+      "早餐"
+    ],
     "description": "传统早餐，植物蛋白丰富"
   },
   {
@@ -230,9 +368,17 @@
       "carbs": 1,
       "fat": 10
     },
-    "ingredients": ["鸡蛋", "少许油"],
-    "tags": ["高蛋白", "早餐"],
-    "available_meals": ["早餐"],
+    "ingredients": [
+      "鸡蛋",
+      "少许油"
+    ],
+    "tags": [
+      "高蛋白",
+      "早餐"
+    ],
+    "available_meals": [
+      "早餐"
+    ],
     "description": "简单营养的早餐选择"
   },
   {
@@ -248,9 +394,18 @@
       "fat": 18,
       "sodium": 620
     },
-    "ingredients": ["鸡腿", "烤料"],
-    "tags": ["高蛋白", "烤制"],
-    "available_meals": ["午餐", "晚餐"],
+    "ingredients": [
+      "鸡腿",
+      "烤料"
+    ],
+    "tags": [
+      "高蛋白",
+      "烤制"
+    ],
+    "available_meals": [
+      "午餐",
+      "晚餐"
+    ],
     "description": "香嫩多汁的烤鸡腿"
   },
   {
@@ -266,9 +421,169 @@
       "fat": 1.5,
       "fiber": 3
     },
-    "ingredients": ["玉米"],
-    "tags": ["粗粮", "健康", "低脂"],
-    "available_meals": ["早餐", "午餐", "晚餐"],
+    "ingredients": [
+      "玉米"
+    ],
+    "tags": [
+      "粗粮",
+      "健康",
+      "低脂"
+    ],
+    "available_meals": [
+      "早餐",
+      "午餐",
+      "晚餐"
+    ],
     "description": "粗粮选择，富含纤维"
+  },
+  {
+    "id": "c2_005",
+    "name": "希腊酸奶碗",
+    "canteen": "南门食堂",
+    "category": "早餐",
+    "price": 15.0,
+    "nutrition": {
+      "calories": 280,
+      "protein": 20,
+      "carbs": 35,
+      "fat": 6
+    },
+    "ingredients": [
+      "希腊酸奶",
+      "燕麦",
+      "蓝莓",
+      "草莓",
+      "蜂蜜",
+      "坚果"
+    ],
+    "tags": [
+      "早餐",
+      "高蛋白",
+      "健康",
+      "素食",
+      "低脂"
+    ],
+    "available_meals": [
+      "早餐"
+    ],
+    "description": "希腊酸奶配新鲜水果和坚果，营养丰富的早餐"
+  },
+  {
+    "id": "c3_005",
+    "name": "豆浆油条",
+    "canteen": "北门食堂",
+    "category": "早餐",
+    "price": 8.0,
+    "nutrition": {
+      "calories": 420,
+      "protein": 12,
+      "carbs": 55,
+      "fat": 18
+    },
+    "ingredients": [
+      "豆浆",
+      "油条"
+    ],
+    "tags": [
+      "早餐",
+      "传统",
+      "经济实惠",
+      "快手"
+    ],
+    "available_meals": [
+      "早餐"
+    ],
+    "description": "经典中式早餐组合"
+  },
+  {
+    "id": "c4_003",
+    "name": "蛋白奶昔",
+    "canteen": "体育馆餐厅",
+    "category": "饮品",
+    "price": 15.0,
+    "nutrition": {
+      "calories": 200,
+      "protein": 30,
+      "carbs": 15,
+      "fat": 3
+    },
+    "ingredients": [
+      "乳清蛋白粉",
+      "牛奶",
+      "香蕉"
+    ],
+    "tags": [
+      "高蛋白",
+      "增肌",
+      "运动",
+      "饮品",
+      "快手"
+    ],
+    "available_meals": [
+      "早餐",
+      "午餐",
+      "晚餐"
+    ],
+    "description": "运动后补充蛋白质的最佳选择"
+  },
+  {
+    "id": "c4_004",
+    "name": "全麦贝果",
+    "canteen": "体育馆餐厅",
+    "category": "早餐",
+    "price": 12.0,
+    "nutrition": {
+      "calories": 290,
+      "protein": 15,
+      "carbs": 48,
+      "fat": 5
+    },
+    "ingredients": [
+      "全麦贝果",
+      "奶酪",
+      "火腿",
+      "生菜"
+    ],
+    "tags": [
+      "早餐",
+      "高纤维",
+      "健康",
+      "快手"
+    ],
+    "available_meals": [
+      "早餐"
+    ],
+    "description": "健康的全麦贝果三明治"
+  },
+  {
+    "id": "c4_005",
+    "name": "运动能量棒",
+    "canteen": "体育馆餐厅",
+    "category": "小食",
+    "price": 8.0,
+    "nutrition": {
+      "calories": 220,
+      "protein": 10,
+      "carbs": 28,
+      "fat": 8
+    },
+    "ingredients": [
+      "燕麦",
+      "坚果",
+      "蜂蜜",
+      "蛋白粉"
+    ],
+    "tags": [
+      "快手",
+      "运动",
+      "便携",
+      "健康"
+    ],
+    "available_meals": [
+      "早餐",
+      "午餐",
+      "晚餐"
+    ],
+    "description": "运动前后的能量补充"
   }
 ]

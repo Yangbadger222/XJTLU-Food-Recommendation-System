@@ -1,0 +1,257 @@
+[
+  {
+    "id": "c2_001",
+    "name": "烤鸡胸肉套餐",
+    "canteen": "南门食堂",
+    "category": "主食",
+    "price": 22.0,
+    "nutrition": {
+      "calories": 480,
+      "protein": 52,
+      "carbs": 45,
+      "fat": 9
+    },
+    "ingredients": ["鸡胸肉", "糙米饭", "西兰花", "胡萝卜"],
+    "tags": ["高蛋白", "低脂", "增肌", "健康", "减脂"],
+    "available_meals": ["午餐", "晚餐"],
+    "description": "健身人群首选，高蛋白低脂肪，配糙米饭和蔬菜"
+  },
+  {
+    "id": "c2_002",
+    "name": "三文鱼刺身饭",
+    "canteen": "南门食堂",
+    "category": "主食",
+    "price": 28.0,
+    "nutrition": {
+      "calories": 520,
+      "protein": 32,
+      "carbs": 58,
+      "fat": 15
+    },
+    "ingredients": ["三文鱼", "米饭", "海苔", "芝麻", "酱油"],
+    "tags": ["高蛋白", "海鲜", "日式", "健康", "omega-3"],
+    "available_meals": ["午餐", "晚餐"],
+    "description": "新鲜三文鱼刺身配日式米饭，富含优质蛋白和omega-3"
+  },
+  {
+    "id": "c2_003",
+    "name": "牛油果奶昔",
+    "canteen": "南门食堂",
+    "category": "饮品",
+    "price": 12.0,
+    "nutrition": {
+      "calories": 220,
+      "protein": 4,
+      "carbs": 25,
+      "fat": 12
+    },
+    "ingredients": ["牛油果", "牛奶", "蜂蜜", "香蕉"],
+    "tags": ["健康", "饮品", "素食", "快手"],
+    "available_meals": ["早餐", "午餐", "晚餐"],
+    "description": "营养丰富的牛油果奶昔，富含健康脂肪和维生素"
+  },
+  {
+    "id": "c2_004",
+    "name": "全麦三明治",
+    "canteen": "南门食堂",
+    "category": "早餐",
+    "price": 10.0,
+    "nutrition": {
+      "calories": 320,
+      "protein": 18,
+      "carbs": 42,
+      "fat": 8
+    },
+    "ingredients": ["全麦面包", "火腿", "生菜", "番茄", "鸡蛋"],
+    "tags": ["早餐", "快手", "高纤维", "健康"],
+    "available_meals": ["早餐"],
+    "description": "健康全麦三明治，早餐的理想选择"
+  },
+  {
+    "id": "c2_005",
+    "name": "希腊酸奶碗",
+    "canteen": "南门食堂",
+    "category": "早餐",
+    "price": 15.0,
+    "nutrition": {
+      "calories": 280,
+      "protein": 20,
+      "carbs": 35,
+      "fat": 6
+    },
+    "ingredients": ["希腊酸奶", "燕麦", "蓝莓", "草莓", "蜂蜜", "坚果"],
+    "tags": ["早餐", "高蛋白", "健康", "素食", "低脂"],
+    "available_meals": ["早餐"],
+    "description": "希腊酸奶配新鲜水果和坚果，营养丰富的早餐"
+  },
+  {
+    "id": "c3_001",
+    "name": "牛肉面",
+    "canteen": "北门食堂",
+    "category": "主食",
+    "price": 16.0,
+    "nutrition": {
+      "calories": 580,
+      "protein": 35,
+      "carbs": 72,
+      "fat": 18
+    },
+    "ingredients": ["牛肉", "面条", "香菜", "葱花", "牛骨汤"],
+    "tags": ["主食", "高蛋白", "高热量", "增肌"],
+    "available_meals": ["午餐", "晚餐"],
+    "description": "经典牛肉面，汤汁浓郁，营养丰富"
+  },
+  {
+    "id": "c3_002",
+    "name": "蔬菜沙拉碗",
+    "canteen": "北门食堂",
+    "category": "素菜",
+    "price": 13.0,
+    "nutrition": {
+      "calories": 180,
+      "protein": 8,
+      "carbs": 22,
+      "fat": 6
+    },
+    "ingredients": ["生菜", "番茄", "黄瓜", "玉米", "橄榄油", "柠檬汁"],
+    "tags": ["素食", "减脂", "低卡", "健康", "清淡"],
+    "available_meals": ["午餐", "晚餐"],
+    "description": "新鲜蔬菜沙拉，低卡路里高纤维"
+  },
+  {
+    "id": "c3_003",
+    "name": "烤三文鱼",
+    "canteen": "北门食堂",
+    "category": "荤菜",
+    "price": 25.0,
+    "nutrition": {
+      "calories": 380,
+      "protein": 40,
+      "carbs": 5,
+      "fat": 22
+    },
+    "ingredients": ["三文鱼", "柠檬", "橄榄油", "迷迭香"],
+    "tags": ["高蛋白", "海鲜", "omega-3", "健康", "低碳水"],
+    "available_meals": ["午餐", "晚餐"],
+    "description": "香烤三文鱼，富含优质蛋白和omega-3脂肪酸"
+  },
+  {
+    "id": "c3_004",
+    "name": "紫薯粥",
+    "canteen": "北门食堂",
+    "category": "早餐",
+    "price": 6.0,
+    "nutrition": {
+      "calories": 180,
+      "protein": 4,
+      "carbs": 38,
+      "fat": 2
+    },
+    "ingredients": ["紫薯", "大米", "红枣"],
+    "tags": ["早餐", "清淡", "素食", "经济实惠", "低脂"],
+    "available_meals": ["早餐"],
+    "description": "营养的紫薯粥，富含膳食纤维和花青素"
+  },
+  {
+    "id": "c3_005",
+    "name": "豆浆油条",
+    "canteen": "北门食堂",
+    "category": "早餐",
+    "price": 8.0,
+    "nutrition": {
+      "calories": 420,
+      "protein": 12,
+      "carbs": 55,
+      "fat": 18
+    },
+    "ingredients": ["豆浆", "油条"],
+    "tags": ["早餐", "传统", "经济实惠", "快手"],
+    "available_meals": ["早餐"],
+    "description": "经典中式早餐组合"
+  },
+  {
+    "id": "c4_001",
+    "name": "健身能量碗",
+    "canteen": "体育馆餐厅",
+    "category": "主食",
+    "price": 26.0,
+    "nutrition": {
+      "calories": 650,
+      "protein": 55,
+      "carbs": 68,
+      "fat": 15
+    },
+    "ingredients": ["鸡胸肉", "糙米", "鸡蛋", "西兰花", "红薯", "牛油果"],
+    "tags": ["增肌", "高蛋白", "高热量", "健身", "健康"],
+    "available_meals": ["午餐", "晚餐"],
+    "description": "专为健身人群设计的高蛋白能量碗"
+  },
+  {
+    "id": "c4_002",
+    "name": "减脂轻食套餐",
+    "canteen": "体育馆餐厅",
+    "category": "主食",
+    "price": 20.0,
+    "nutrition": {
+      "calories": 380,
+      "protein": 38,
+      "carbs": 35,
+      "fat": 8
+    },
+    "ingredients": ["鸡胸肉", "藜麦", "圣女果", "生菜", "黄瓜"],
+    "tags": ["减脂", "低卡", "高蛋白", "低脂", "健康"],
+    "available_meals": ["午餐", "晚餐"],
+    "description": "低卡高蛋白的减脂套餐，营养均衡"
+  },
+  {
+    "id": "c4_003",
+    "name": "蛋白奶昔",
+    "canteen": "体育馆餐厅",
+    "category": "饮品",
+    "price": 15.0,
+    "nutrition": {
+      "calories": 200,
+      "protein": 30,
+      "carbs": 15,
+      "fat": 3
+    },
+    "ingredients": ["乳清蛋白粉", "牛奶", "香蕉"],
+    "tags": ["高蛋白", "增肌", "运动", "饮品", "快手"],
+    "available_meals": ["早餐", "午餐", "晚餐"],
+    "description": "运动后补充蛋白质的最佳选择"
+  },
+  {
+    "id": "c4_004",
+    "name": "全麦贝果",
+    "canteen": "体育馆餐厅",
+    "category": "早餐",
+    "price": 12.0,
+    "nutrition": {
+      "calories": 290,
+      "protein": 15,
+      "carbs": 48,
+      "fat": 5
+    },
+    "ingredients": ["全麦贝果", "奶酪", "火腿", "生菜"],
+    "tags": ["早餐", "高纤维", "健康", "快手"],
+    "available_meals": ["早餐"],
+    "description": "健康的全麦贝果三明治"
+  },
+  {
+    "id": "c4_005",
+    "name": "运动能量棒",
+    "canteen": "体育馆餐厅",
+    "category": "小食",
+    "price": 8.0,
+    "nutrition": {
+      "calories": 220,
+      "protein": 10,
+      "carbs": 28,
+      "fat": 8
+    },
+    "ingredients": ["燕麦", "坚果", "蜂蜜", "蛋白粉"],
+    "tags": ["快手", "运动", "便携", "健康"],
+    "available_meals": ["早餐", "午餐", "晚餐"],
+    "description": "运动前后的能量补充"
+  }
+]
